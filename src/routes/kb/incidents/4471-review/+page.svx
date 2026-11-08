@@ -1,0 +1,77 @@
+---
+layout: runbook
+title: '#4471 review · separate the parser and form-hint failures'
+owner: support desk
+status: reviewed
+reviewed: 2026-11-08
+signature: 'Codex · S01E03 analysis for jkoniwszczynski-alle · 2026-11-08'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+This review uses the supplied export through 4 October 2026. It is not a live
+view of the support queue. The old incident page's “one issue, one fix queued”
+statement is contradicted by the executable classification below.
+
+## Separate work, separate verification
+
+The **shared parser** assumes month-first input for tenants who write day first.
+The **booking-v3 hint** instructs people to enter month-first dates while the form
+reads their input in the tenant's day-first order. Fixing one does not prove the
+other is fixed.
+
+<CauseTable ticket={4471} />
+
+Counts are computed from unique report IDs. Overlapping export rows are not
+additional reports. Classify using the tenant directory, form version and
+submission channel; the browser-locale intake tag is only a guess.
+
+<Callout kind="warn">
+  The desk's one-day-move notes identify unresolved evidence inside the parser
+  group, not a verified extra cause. Keep those reports in the displayed count
+  while checking original timestamps, timezone behavior and reproduction.
+</Callout>
+
+## The queue did not stop
+
+<QueueTimeline ticket={4471} />
+
+Reports arrived before the bulk merges and continued afterward. Receipt and
+merge dates measure different events. A “known” label is not evidence that
+new reports are duplicates or that any fix has shipped.
+
+## Revised triage rule
+
+Do not merge on matching subjects alone. Read the report and compare the
+affected behavior, tenant locale, form and channel. Merge only when the cause
+is supported by evidence. Different subjects can describe the same failure;
+identical subjects can describe different failures.
+
+<DedupeExplorer />
+
+Unknown tenants and unresolved causes stay separate for investigation. Preserve
+report IDs and provenance, then recompute counts when the directory or evidence
+changes. Record incoming reports while this review is in progress rather than
+silently extending an old snapshot.
+
+The accepted [decision 0001](/kb/decisions/0001-dedupe-by-subject) remains
+unchanged as history. [Decision 0002](/kb/decisions/0002-dedupe-by-cause)
+replaces it in this reviewed export, and the [triage runbook](/kb/triage/dedupe)
+now uses cause-based merging.
+
+## Engineering tickets
+
+- [Shared parser: day-first dates read month-first](https://github.com/jkoniwszczynski-alle/mega-s01e03-what-it-shows/issues/1).
+- [booking-v3: date hint contradicts tenant input interpretation](https://github.com/jkoniwszczynski-alle/mega-s01e03-what-it-shows/issues/2).
+
+Each ticket covers one classified cause. The table above computes its scope;
+the ticket records the export snapshot. Neither ticket claims a product fix
+has shipped. Reconcile new reports separately when a later export arrives.
+
+<RenderStamp {signature} />

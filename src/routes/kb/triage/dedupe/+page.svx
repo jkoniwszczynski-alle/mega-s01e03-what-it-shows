@@ -1,0 +1,45 @@
+---
+layout: runbook
+title: 'Triage: duplicate reports'
+owner: support desk
+status: accepted
+reviewed: 2026-11-08
+signature: 'Codex · S01E03 analysis for jkoniwszczynski-alle · 2026-11-08'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+A busy morning brings hundreds of reports about the same thing. We keep one ticket per issue
+and merge every duplicate into it, so engineering sees one thread with a count.
+
+## The rule
+
+A report is a duplicate only when the **supported cause matches** an open ticket
+([decision 0002](/kb/decisions/0002-dedupe-by-cause), replacing decision 0001):
+
+1. Read the report; resolve its tenant, locale, form version and channel.
+2. Compare the failure mechanism and evidence with the target ticket.
+3. Merge only for the same supported cause. Keep distinct or uncertain cases separate.
+4. Count unique report IDs, preserving source evidence and correcting classifications
+   when new information arrives. Keep triaging incoming reports during an incident.
+
+<Callout>
+Subjects and browser-locale intake tags are hints, not proof. Identical subjects can
+describe different causes, and different subjects can describe the same cause.
+</Callout>
+
+## Try it
+
+<DedupeExplorer />
+
+## When you are unsure
+
+Do not merge. Request missing tenant details or reproduction evidence. Keep anomalous
+reports visible and distinguish a tentative classification from a verified root cause.
+An existing “known” status does not establish that a new report is a duplicate.
+
+<RenderStamp {signature} />

@@ -1,0 +1,53 @@
+---
+layout: runbook
+title: '0002 · Merge reports only when the cause matches'
+owner: support desk
+status: accepted
+reviewed: 2026-11-08
+signature: 'Codex · S01E03 analysis for jkoniwszczynski-alle · 2026-11-08'
+---
+
+<script>
+  import DedupeExplorer from '#lib/kb/DedupeExplorer.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+**Date:** 8 November 2026 · **Scope:** this reviewed kb export.
+
+## Context
+
+Ticket #4471 combined different date failures because the desk matched subject
+lines. Its old “one issue, one fix” description hides a booking-v3 form-hint
+defect behind a shared-parser defect. Intake tags are guesses, not verified
+causes. Reports kept arriving after the ticket was marked known.
+
+## Decision
+
+This record replaces [decision 0001](/kb/decisions/0001-dedupe-by-subject).
+The accepted original is retained unchanged for history.
+
+Read the report and establish its cause using tenant locale, form version,
+submission channel and supporting reproduction evidence. Merge only when that
+cause matches the target ticket. A matching subject is insufficient; different
+subjects do not prevent a merge. Unknown tenants or unresolved causes remain
+separate for investigation.
+
+For the supplied date reports, use the executable classification rather than
+browser locale or intake tags. Deduplicate export rows by report ID before
+counting. Preserve anomalous reports and their uncertainty; classification
+does not prove that a suspected mechanism explains every symptom.
+
+<DedupeExplorer />
+
+## Consequences
+
+Triage takes more reading than matching subjects, but avoids concealing a
+separate failure behind a popular ticket. Keep one engineering issue per
+supported cause, with unique report IDs, counts and evidence. New reports must
+still be triaged while engineering works; “known” is not a reason to merge.
+If evidence changes, reclassify and recompute counts without losing provenance.
+
+The [updated runbook](/kb/triage/dedupe) applies this rule. The
+[incident review](/kb/incidents/4471-review) links the resulting work.
+
+<RenderStamp {signature} />

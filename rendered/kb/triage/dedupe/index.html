@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../../_app/immutable/entry/start.BwH6CT23.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BDhH3K_E.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/Q7UVMshJ.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/D1KeUVxL.js" rel="modulepreload">
+		<link href="../../../_app/immutable/entry/app.CRHuc4Ou.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/CGH_nMc8.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/DqLirJ1Y.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/DAh5bjFq.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BYBVEL4-.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/0.CjWSlchI.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/tmRMEVZu.js" rel="modulepreload">
+		<link href="../../../_app/immutable/nodes/7.C-lY0Afu.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/C5dEN3nm.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BMTDuwgk.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/DKSsn3q8.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/CGQo3E1L.js" rel="modulepreload">
+		<link href="../../../_app/immutable/chunks/BKV5koQz.js" rel="modulepreload">
+		<!--e2jw2j--><!----><title>Triage: duplicate reports · support kb</title>
+		<link href="../../../_app/immutable/assets/runbook.BhhgOc_n.css" rel="stylesheet">
+		<link href="../../../_app/immutable/assets/RenderStamp.CMZ6TBbc.css" rel="stylesheet">
+		<link href="../../../_app/immutable/assets/DedupeExplorer.C3mwiGDj.css" rel="stylesheet">
+		<link href="../../../_app/immutable/assets/Callout.yLErXQDM.css" rel="stylesheet">
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[0--><!--[--><!--[--><div class="kb svelte-e2jw2j"><header><a class="crumb svelte-e2jw2j" href="/kb">support desk · kb</a> <h1 class="svelte-e2jw2j">Triage: duplicate reports</h1> <p class="meta svelte-e2jw2j"><span>owner <b>support desk</b></span> <span class="status accepted svelte-e2jw2j">accepted</span> <span class="svelte-e2jw2j">reviewed 2026-11-08 · 0 days ago</span></p></header> <!--[-1--><!--]--> <main><p>A busy morning brings hundreds of reports about the same thing. We keep one ticket per issue
+and merge every duplicate into it, so engineering sees one thread with a count.</p> <h2>The rule</h2> <p>A report is a duplicate only when the <strong>supported cause matches</strong> an open ticket
+(<a href="/kb/decisions/0002-dedupe-by-cause">decision 0002</a>, replacing decision 0001):</p> <ol><li>Read the report; resolve its tenant, locale, form version and channel.</li> <li>Compare the failure mechanism and evidence with the target ticket.</li> <li>Merge only for the same supported cause. Keep distinct or uncertain cases separate.</li> <li>Count unique report IDs, preserving source evidence and correcting classifications
+when new information arrives. Keep triaging incoming reports during an incident.</li></ol> <aside class="note svelte-17bri61"><!---->Subjects and browser-locale intake tags are hints, not proof. Identical subjects can
+describe different causes, and different subjects can describe the same cause.<!----></aside><!----> <h2>Try it</h2> <div class="try svelte-gq0h2h"><!--[--><fieldset class="svelte-gq0h2h"><legend>report A</legend> <select aria-label="tenant"><!--[--><option selected="">alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option>kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>hint</code></fieldset><fieldset class="svelte-gq0h2h"><legend>report B</legend> <select aria-label="tenant"><!--[--><option>alder.physio</option><option>copper.studio</option><option>harbour.dental</option><option selected="">kettle.books</option><option>lantern.row</option><option>long.table</option><option>morrow.tax</option><option>nine.lanterns</option><option>pale.harbour</option><option>ridge.clinic</option><option>stone.and.sons</option><!--]--></select> <select aria-label="channel"><!--[--><option>app</option><option>email</option><option selected="">form</option><!--]--></select> <input value="Booking on the wrong date" aria-label="subject"/> <code>parser</code></fieldset><!--]--> <p class="verdict svelte-gq0h2h">different causes — keep apart</p></div> <table><thead><tr><th>case</th><th>same subject</th><th>same cause</th></tr></thead><tbody><!--[--><tr><td>app vs email, same tenant</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>same subject, same tenant, different channel</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>same subject, same channel, different tenant</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><tr><td>different subject, same way in</td><td>no</td><td class="svelte-gq0h2h dup">yes</td></tr><tr><td>no tenant on file</td><td>yes</td><td class="svelte-gq0h2h">no</td></tr><!--]--></tbody></table><!----> <h2>When you are unsure</h2> <p>Do not merge. Request missing tenant details or reproduction evidence. Keep anomalous
+reports visible and distinguish a tentative classification from a verified root cause.
+An existing “known” status does not establish that a new report is a duplicate.</p> <!--[0--><p class="stamp svelte-1280m42">desk ref <b class="svelte-1280m42">DR-TMZA-XZ1G</b></p><!--]--><!----><!----></main> <footer class="svelte-e2jw2j">Pages are written by people. Tables and charts are built from data at render time.</footer></div><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_ub140m = {
+						base: new URL("../../..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../../../_app/immutable/entry/start.BwH6CT23.js"),
+						import("../../../_app/immutable/entry/app.CRHuc4Ou.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 7],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+  </body>
+</html>
