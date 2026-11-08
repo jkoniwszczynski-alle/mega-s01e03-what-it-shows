@@ -4,7 +4,7 @@ title: '#4471 review · separate the parser and form-hint failures'
 owner: support desk
 status: reviewed
 reviewed: 2026-11-08
-signature: 'Codex · S01E03 analysis for jkoniwszczynski-alle · 2026-11-08'
+signature: 'v1.eyJzdWIiOiI0Njc5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTQwOTgzMTAsImV4cCI6MTc5NDE4NDcxMH0.LdjBzEWI1I3iMSq5ZJbuF2U8RWlMM9NFzUx51cijrbg'
 ---
 
 <script>
