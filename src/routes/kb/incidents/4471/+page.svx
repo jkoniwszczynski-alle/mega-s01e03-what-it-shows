@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · dates parse mm/dd in eu locales'
 owner: support desk
-status: split
+status: closed
 reviewed: 2026-11-08
 signature: 'Codex · S01E03 analysis for jkoniwszczynski-alle · 2026-11-08'
 ---
@@ -24,7 +24,8 @@ prints a month-first hint while the form reads tenant-local input.
 <Callout kind="warn">
 The old “one issue, one fix queued” conclusion was wrong.
 Read the <a href="/kb/incidents/4471-review">signed review and separate engineering tickets</a>.
-Neither fix has been verified as shipped.
+The 5 October engineering update reports the parser fixed and the booking-v3
+form retired without a fix to its hint. See the review for the distinct outcomes.
 </Callout>
 
 ## What was merged

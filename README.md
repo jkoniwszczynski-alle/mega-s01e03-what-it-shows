@@ -18,7 +18,9 @@ added here executes its original components and classification logic.
 
 Analysis date: 2026-11-08. Dataset ends 2026-10-04, not live support state.
 Accepted decision 0001 is preserved unchanged; decision 0002 replaces it.
-No product fix is claimed to have shipped.
+The course's 5 October engineering update reports the parser fixed; booking-v3
+was retired, so the hint issue is closed as not planned. These are reported
+engineering outcomes, not product verification performed in this repository.
 
 **kb** = knowledge base. What the support desk knows about how our products break, written
 down where the code can keep it honest.

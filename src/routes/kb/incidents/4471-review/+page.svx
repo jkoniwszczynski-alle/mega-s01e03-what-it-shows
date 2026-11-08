@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · separate the parser and form-hint failures'
 owner: support desk
-status: reviewed
+status: closed
 reviewed: 2026-11-08
 signature: 'v1.eyJzdWIiOiI0Njc5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTQwOTgzMTAsImV4cCI6MTc5NDE4NDcxMH0.LdjBzEWI1I3iMSq5ZJbuF2U8RWlMM9NFzUx51cijrbg'
 ---
@@ -15,9 +15,10 @@ signature: 'v1.eyJzdWIiOiI0Njc5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpY
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
 </script>
 
-This review uses the supplied export through 4 October 2026. It is not a live
-view of the support queue. The old incident page's “one issue, one fix queued”
-statement is contradicted by the executable classification below.
+Counts in this review use the supplied export through 4 October 2026. The
+engineering update on the course page closes #4471 on 5 October 2026.
+The old “one issue, one fix queued” statement is contradicted by the
+classification below and by the two different closure outcomes.
 
 ## Separate work, separate verification
 
@@ -71,7 +72,22 @@ now uses cause-based merging.
 - [booking-v3: date hint contradicts tenant input interpretation](https://github.com/jkoniwszczynski-alle/mega-s01e03-what-it-shows/issues/2).
 
 Each ticket covers one classified cause. The table above computes its scope;
-the ticket records the export snapshot. Neither ticket claims a product fix
-has shipped. Reconcile new reports separately when a later export arrives.
+the ticket records the export snapshot. Reconcile new reports separately when
+a later export arrives.
+
+## Engineering update — 5 October 2026
+
+The [course's engineering update](https://hq.mega.dev/challenges/what-it-shows)
+reports these distinct outcomes:
+
+- **Parser — fixed.** Engineering reports `fix(dates): parse dd/mm for eu locales`.
+  The corresponding issue is closed as completed.
+- **Form hint — won't fix.** Engineering retired the booking-v3 form.
+  The corresponding issue is closed as not planned, not as a repaired defect.
+
+Closing both tickets does not mean both bugs were fixed. These outcomes come
+from the desk's update, not from product tests run in this repository. The
+one-day-move notes remain part of the historical evidence; the update supplies
+no separate reproduction results for them.
 
 <RenderStamp {signature} />

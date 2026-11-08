@@ -25,4 +25,6 @@ for (const text of ['379', '33', '412', 'parser', 'hint', '/issues/1', '/issues/
 }
 assert.ok(!html.includes("this page isn't signed"), 'signature must reach the component');
 assert.ok(html.includes('different causes — keep apart'), 'interactive example must be server-rendered');
+assert.ok(html.includes('fix(dates): parse dd/mm for eu locales'));
+assert.ok(html.includes('not planned'), 'retirement must not be presented as a fix');
 console.log(`Verified 412 unique reports, parser=379, hint=33; rendered desk ref ${deskRef(signature)}.`);
